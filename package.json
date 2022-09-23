@@ -5,10 +5,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "updateDict": "node scripts/updateDict.js"
+    "updateDict": "node scripts/updateDict.js",
+    "test": "jest"
   },
   "dependencies": {
-    "hunspell-spellchecker": "^1.0.2",
+    "hunspell-spellchecker": "^1.0.2"
+  },
+  "devDependencies": {
     "jest": "^29.0.3"
   }
 }

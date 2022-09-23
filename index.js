@@ -1,4 +1,8 @@
 const domainChecker = require('./domainChecker');
 
-domainChecker.check('gmail.com');
-domainChecker.check('gmail.co');
+
+module.exports = (email) => {
+  const [account, domain] = email.split('@');
+
+  domainChecker.check(domain);
+};
