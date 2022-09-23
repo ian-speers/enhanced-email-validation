@@ -1,0 +1,10 @@
+{
+  "name": "validate-email",
+  "version": "0.0.0",
+  "description": "Validates email format, and checks that the domain belongs to a known email provider",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "updateDict": "node scripts/updateDict.js"
+  }
+}
