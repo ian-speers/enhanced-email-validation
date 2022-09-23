@@ -6,5 +6,8 @@
   "license": "MIT",
   "scripts": {
     "updateDict": "node scripts/updateDict.js"
+  },
+  "dependencies": {
+    "hunspell-spellchecker": "^1.0.2"
   }
 }
