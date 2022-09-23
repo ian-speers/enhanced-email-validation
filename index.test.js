@@ -1,5 +1,8 @@
 const underTest = require('./');
 
 test('Domain', () => {
-    underTest('test@gmail.co');
+  expect(underTest('test@gmail.co')).toEqual({
+    valid: false,
+    suggestions: ['test@gmail.com'],
+  });
 });
