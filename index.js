@@ -1,10 +1,24 @@
+const _ = require('lodash');
+
 const domainChecker = require('./domainChecker');
+
+const DEFAULT_OPTIONS = {
+  domains: {
+    allow: [/\.edu(\.|$)/], // domain list is missing most .edu domains
+    deny: [],
+  },
+};
 
 const regex = /^[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
 
 const contextualizeDomainSuggestions = (account, suggestions) => suggestions && suggestions.map((s) => `${account}@${s}`);
 
-module.exports = (email) => {
+const findMatchingDomainRule = (domain, rules) => rules.find((rule) => (
+  (_.isString(rule) && _.isEqual(domain, rule)) ||
+  (_.isRegExp(rule) && rule.test(domain))
+));
+
+module.exports = (email, options = DEFAULT_OPTIONS) => {
   const [account, domain, ...rest] = email.split('@');
 
   if (rest && rest.length) {
@@ -24,6 +38,18 @@ module.exports = (email) => {
   }
 
   if (!regex.test(email)) {
+    return { valid: false };
+  }
+
+  const allowDomains = options?.domains?.allow ?? DEFAULT_OPTIONS.domains.allow;
+
+  if (findMatchingDomainRule(domain, allowDomains)) {
+    return { valid: true };
+  }
+
+  const deniedDomains = options?.domains?.deny ?? DEFAULT_OPTIONS.domains.deny;
+
+  if (findMatchingDomainRule(domain, deniedDomains)) {
     return { valid: false };
   }
 

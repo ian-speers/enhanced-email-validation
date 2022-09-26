@@ -9,7 +9,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "hunspell-spellchecker": "^1.0.2"
+    "hunspell-spellchecker": "^1.0.2",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "jest": "^29.0.3"
