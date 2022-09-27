@@ -1,6 +1,6 @@
 {
   "name": "enhanced-email-validation",
-  "version": "0.0.0",
+  "version": "0.0.10",
   "description": "Validates email format, and checks that the domain belongs to a known email provider",
   "main": "dist/index.js",
   "license": "Unlicense",
