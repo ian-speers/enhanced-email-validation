@@ -1,0 +1,4 @@
+scripts
+*.test.js
+.editorconfig
+tsconfig.json
