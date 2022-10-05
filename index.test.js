@@ -15,6 +15,34 @@ test('domain validations', () => {
     valid: false,
     suggestions: ['test@gmail.com'],
   });
+  expect(underTest('test@gmail.con')).toEqual({
+    valid: false,
+    suggestions: ['test@gmail.com'],
+  });
+  expect(underTest('test@gmail.coma')).toEqual({
+    valid: false,
+    suggestions: ['test@gmail.com'],
+  });
+  expect(underTest('test@gmail.comm')).toEqual({
+    valid: false,
+    suggestions: ['test@gmail.com'],
+  });
+  expect(underTest('test@gmail.comj')).toEqual({
+    valid: false,
+    suggestions: ['test@gmail.com'],
+  });
+  expect(underTest('test@gmail.clm')).toEqual({
+    valid: false,
+    suggestions: ['test@gmail.com'],
+  });
+  expect(underTest('test@yahoo.con')).toEqual({
+    valid: false,
+    suggestions: ['test@yahoo.com'],
+  });
+  expect(underTest('test@netzero.xom')).toEqual({
+    valid: false,
+    suggestions: ['test@netzero.com'],
+  });
 });
 
 test('email validations', () => {
