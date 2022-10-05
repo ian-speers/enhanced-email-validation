@@ -35,6 +35,10 @@ test('domain validations', () => {
     valid: false,
     suggestions: ['test@gmail.com'],
   });
+  expect(underTest('test@gmaik.com')).toEqual({
+    valid: false,
+    suggestions: ['test@gmail.com'],
+  });
   expect(underTest('test@yahoo.con')).toEqual({
     valid: false,
     suggestions: ['test@yahoo.com'],
