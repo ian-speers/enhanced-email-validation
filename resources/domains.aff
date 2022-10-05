@@ -50,3 +50,7 @@ REP t r
 REP 2
 REP l k
 REP k l
+
+REP 2
+REP o k
+REP k o

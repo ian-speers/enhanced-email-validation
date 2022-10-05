@@ -43,6 +43,10 @@ test('domain validations', () => {
     valid: false,
     suggestions: ['test@yahoo.com'],
   });
+  expect(underTest('test@yahoo.ck')).toEqual({
+    valid: false,
+    suggestions: ['test@yahoo.co'],
+  });
   expect(underTest('test@netzero.xom')).toEqual({
     valid: false,
     suggestions: ['test@netzero.com'],
